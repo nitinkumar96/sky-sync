@@ -1,0 +1,21 @@
+config:
+  target: 'http://localhost:3001'
+  phases:
+    - duration: 60 # Test duration in seconds
+      arrivalRate: 10 # Number of new users per second
+  defaults:
+    headers:
+      content-type: application/json
+scenarios:
+  - name: 'Change flight status repeatedly'
+    flow:
+      - put:
+          url: '/flights/1'
+          json:
+            status: 'Delayed'
+      - think: 1
+      - put:
+          url: '/flights/1'
+          json:
+            status: 'On Time'
+      - think: 1
