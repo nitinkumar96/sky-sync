@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
+const { logNotification } = require('./notificationLog');
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
@@ -10,17 +11,18 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to, subject, message) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to,
     subject,
-    text,
+    message,
   };
 
   try {
     await transporter.sendMail(mailOptions);
     console.log(`Email sent to ${to}`);
+    logNotification('Email', to, `${subject} - ${message}`);
   } catch (error) {
     console.error('Error sending email:', error);
   }
