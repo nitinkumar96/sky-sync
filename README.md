@@ -1,6 +1,8 @@
 # SkySync
 ## Flight Status & Updates
 
+![Home Page](frontend/src/assets/homepage.png)
+
 [![Google Slides Presentation](https://img.icons8.com/ios-filled/50/000000/google-slides.png)](YOUR_GOOGLE_SLIDES_LINK)
 [![Google Docs](https://img.icons8.com/ios-filled/50/000000/google-docs.png)](YOUR_GOOGLE_DOCS_LINK)
 
