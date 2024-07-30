@@ -5,7 +5,7 @@
 ![Home Page](frontend/src/assets/homepage.png)
 
 ### PPT Link
-[![Google Slides Presentation](https://docs.google.com/presentation/d/1FXYXTvvcmCBKxCVHrZVLlikIwCbh0LiQ_8O8qBPUqkA/edit?usp=sharing)]
+(https://docs.google.com/presentation/d/1FXYXTvvcmCBKxCVHrZVLlikIwCbh0LiQ_8O8qBPUqkA/edit?usp=sharing)
 ---
 
 ### Overview
