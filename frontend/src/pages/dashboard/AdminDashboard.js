@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Paper, Typography, Grid, Tabs, Tab, TextField, Button,
-    Box
+    Paper, Typography, Grid, Tabs, Tab, TextField, Button
 } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../redux/features/userSlice';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/features/userSlice';
 import axios from 'axios';
-import '../styles/FlightStatus.css';
+import '../../styles/FlightStatus.css';
 
 const AdminDashboard = () => {
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.user.user);
     const [tabValue, setTabValue] = useState(0);
     const [flightData, setFlightData] = useState({
         flightNumber: '',

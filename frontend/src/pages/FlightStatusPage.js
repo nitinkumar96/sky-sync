@@ -1,20 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { TextField, Button, Typography, Grid, Paper } from '@mui/material';
-import FlightDetailCard from './FlightDetailCard';
-import '../styles/HomePage.css';
+import '../styles/FlightStatus.css';
+import { TextField, Button, Typography, Grid } from '@mui/material';
+import FlightDetailCard from '../components/FlightDetailCard';
+import { useSelector } from 'react-redux'; 
 
-const FlightStatusForm = () => {
+const FlightStatusPage = () => {
   const [pnr, setPnr] = useState('');
   const [email, setEmail] = useState('');
   const [flightInfo, setFlightInfo] = useState(null);
   const [error, setError] = useState('');
+  const [fadeIn, setFadeIn] = useState(false); 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  // Access PNR and email from the Redux store
+  const pnrFromStore = useSelector((state) => state.user.pnr);
+  const emailFromStore = useSelector((state) => state.user.email);
+
+  useEffect(() => {
+    if (pnrFromStore && emailFromStore) {
+      setPnr(pnrFromStore);
+      setEmail(emailFromStore);
+      handleFetchFlightInfo(pnrFromStore, emailFromStore);
+    }
+  }, [pnrFromStore, emailFromStore]); 
+
+  useEffect(() => {
+    setFadeIn(true);
+  }, []); 
+
+  const handleFetchFlightInfo = async (pnr, email) => {
     try {
+      console.log("Fetching flight info for:", pnr, email); // Log PNR and email
       const response = await axios.post('http://localhost:3001/api/flights/pnr', { pnr, email });
-      setFlightInfo(response.data); // Assuming response contains the entire flight info
+      console.log(response.data);
+      setFlightInfo(response.data);
       setError('');
     } catch (err) {
       console.log(err);
@@ -23,12 +42,15 @@ const FlightStatusForm = () => {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent form submission
+    console.log("submit", pnr, email); // Log current values of pnr and email
+    await handleFetchFlightInfo(pnr, email); // Fetch flight info with current values
+  };
+
   return (
-    <>
-      <div 
-        backgroundColor='transparent'
-        className='flight-status-form' 
-      >
+    <div className={`status-background`}>
+      <div className={`status-page-form ${fadeIn ? 'fade-in' : ''}`}>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3} padding={2} alignItems="center">
             <Grid item xs={12} sm={5}>
@@ -73,11 +95,13 @@ const FlightStatusForm = () => {
         {error && <Typography color="error" align="center">{error}</Typography>}
       </div>
 
-      {flightInfo && (
-        <FlightDetailCard flight={flightInfo} />
-      )}
-    </>
+      <div style={{ width: '67%', display: 'flex', justifyContent: 'center' }}>
+        {flightInfo && (
+          <FlightDetailCard flight={flightInfo} />
+        )}
+      </div>
+    </div>
   );
 };
 
-export default FlightStatusForm;
+export default FlightStatusPage;

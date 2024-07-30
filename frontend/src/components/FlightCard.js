@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import { styled } from '@mui/system';
 import IndigoLogo from '../assets/indigo_logo.png';
-import PlaneIcon from '@mui/icons-material/ArrowForward';
 import { IoIosAirplane } from "react-icons/io";
 
 const FlightCardContainer = styled(Box)(({ theme }) => ({

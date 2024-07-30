@@ -7,8 +7,8 @@ const prisma = new PrismaClient();
 // const { updateDashboard } = require('../services/dashboardService');
 
 const kafka = new Kafka({
-  clientId: 'my-consumer',
-  brokers: ['localhost:9092']
+  clientId: process.env.KAFKA_CLIENT_ID,
+  brokers: [process.env.KAFKA_BROKER]
 });
 
 const consumer = kafka.consumer({ groupId: 'flight-booking-group' });

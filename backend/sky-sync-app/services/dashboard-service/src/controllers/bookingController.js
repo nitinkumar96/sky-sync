@@ -1,9 +1,8 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const bookingService = require('./bookingService');
 
 const getAllBookings = async (req, res) => {
     try {
-        const bookings = await prisma.booking.findMany();
+        const bookings = await bookingService.getAllBookings();
         res.json(bookings);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -13,17 +12,14 @@ const getAllBookings = async (req, res) => {
 const getBookingByPnr = async (req, res) => {
     const { pnr } = req.params;
     try {
-        const booking = await prisma.booking.findUnique({ where: { pnr } });
-        if (!booking) {
-            return res.status(404).json({ message: 'Booking not found' });
-        }
+        const booking = await bookingService.getBookingByPnr(pnr);
         res.json(booking);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(404).json({ message: error.message });
     }
 };
 
 module.exports = {
     getAllBookings,
-    getBookingByPnr
+    getBookingByPnr,
 };

@@ -3,8 +3,8 @@ import { Grid, Typography, Button, TextField, Box, Snackbar, Divider } from '@mu
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../redux/features/userSlice';
-import '../styles/FlightStatus.css';
+import { setUser } from '../../redux/features/userSlice';
+import '../../styles/FlightStatus.css';
 
 const AdminLoginPage = () => {
     const [email, setEmail] = useState('');

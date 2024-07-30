@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Button, Box, Typography, Grid, TextField, MenuItem } from '@mui/material';
+import { Button, Box, Typography, TextField, MenuItem } from '@mui/material';
 import '../styles/FlightStatus.css';
-import FlightCard from './FlightCard';
+import FlightCard from '../components/FlightCard';
 import Pagination from '@mui/material/Pagination';
 
 const FlightsPage = () => {
-  const [fadeIn, setFadeIn] = useState(false);
   const [flights, setFlights] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [flightsPerPage] = useState(4); 
@@ -15,7 +14,6 @@ const FlightsPage = () => {
   const [toAirport, setToAirport] = useState('');
 
   useEffect(() => {
-    setFadeIn(true);
     const fetchFlights = async () => {
       try {
         const response = await axios.get('http://localhost:3001/api/flights');

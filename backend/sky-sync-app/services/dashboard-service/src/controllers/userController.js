@@ -1,9 +1,8 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const userService = require('./userService');
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await prisma.passenger.findMany();
+        const users = await userService.getAllUsers();
         res.json(users);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -13,17 +12,14 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
     const { id } = req.params;
     try {
-        const user = await prisma.passenger.findUnique({ where: { id: parseInt(id) } });
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
+        const user = await userService.getUserById(id);
         res.json(user);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(404).json({ message: error.message });
     }
 };
 
 module.exports = {
     getAllUsers,
-    getUserById
+    getUserById,
 };

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Paper, Typography, Grid, FormControlLabel, Switch, Divider, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../redux/features/userSlice';
+import { setUser } from '../../redux/features/userSlice';
 import axios from 'axios';
-import FlightDetailCard from './FlightDetailCard';
-import FlightCard from './FlightCard';
+import FlightDetailCard from '../../components/FlightDetailCard';
+import FlightCard from '../../components/FlightCard';
 
-const UserInfoPage = () => {
+const UserDashboard = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const [flights, setFlights] = useState([]);
@@ -255,4 +255,4 @@ const UserInfoPage = () => {
   );
 };
 
-export default UserInfoPage;
+export default UserDashboard;

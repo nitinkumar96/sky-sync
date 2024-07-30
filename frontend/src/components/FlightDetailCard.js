@@ -1,7 +1,6 @@
 import React from 'react';
-import { Typography, Grid, Paper } from '@mui/material';
+import { Typography, Grid } from '@mui/material';
 import IndigoLogo from '../assets/indigo_logo.png';
-import PlaneIcon from '@mui/icons-material/ArrowForward'; 
 import '../styles/FlightStatus.css';
 import { IoIosAirplane } from "react-icons/io";
 

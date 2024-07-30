@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   TextField,
   Button,
-  Container,
   Typography,
   Box,
   Snackbar,
@@ -13,7 +11,6 @@ import axios from 'axios';
 import '../styles/FlightStatus.css';
 
 const BookingPage = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     flightId: '',
     name: '',
