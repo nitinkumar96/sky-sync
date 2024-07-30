@@ -10,6 +10,8 @@
 ### PPT Link
 [**SkySync PPT - Google Slides Presentation**](https://docs.google.com/presentation/d/1FXYXTvvcmCBKxCVHrZVLlikIwCbh0LiQ_8O8qBPUqkA/edit?usp=sharing)
 
+### Youtube Video Link
+[**SkySync - Walkthrough**](https://youtu.be/Sn0Qsa2pW_M)
 ---
 
   
