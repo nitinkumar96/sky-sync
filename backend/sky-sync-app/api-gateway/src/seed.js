@@ -1,12 +1,13 @@
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 const prisma = new PrismaClient();
 
 const seedAdmin = async () => {
     try {
         const existingAdmin = await prisma.passenger.findUnique({
-            where: { email: 'admin@gmail.com' }
+            where: { email: process.env.ADMIN_EMAIL }
         });
 
         if (existingAdmin) {
@@ -14,13 +15,13 @@ const seedAdmin = async () => {
             return;
         }
 
-        const hashedPassword = await bcrypt.hash('admin', 10); 
+        const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASS, 10); 
 
         const adminUser = await prisma.passenger.create({
             data: {
                 id: 0,
                 name: 'SkySync Admin',
-                email: 'admin@gmail.com', 
+                email: process.env.ADMIN_EMAIL, 
                 mobile: '9876543210',
                 password: hashedPassword,
                 role: 'admin', 
