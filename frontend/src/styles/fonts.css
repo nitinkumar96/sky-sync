@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'BauhausRegular';
+    src: url('../assets/fonts/BauhausRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BauhausBold';
+    src: url('../assets/fonts/BauhausBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

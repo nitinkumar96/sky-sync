@@ -1,0 +1,36 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Flight {
+  id                       Int      @id @default(autoincrement())
+  flightNumber             String
+  airline                  String
+  departureAirportCode     String   
+  departureAirportName     String   
+  arrivalAirportCode       String   
+  arrivalAirportName       String   
+  date                     DateTime
+  departureTime            DateTime
+  arrivalTime              DateTime
+  status                   String
+  gate                     String?
+  terminal                 String?
+  scheduledDepartureTime   DateTime
+  scheduledArrivalTime     DateTime
+  elapsedTime              Int?
+  aircraftType             String?
+  baggageClaim             String?
+  remarks                  String?
+  lastUpdated              DateTime
+  isInternational          Boolean  @default(false)
+  boardingTime             DateTime?
+}
+
+

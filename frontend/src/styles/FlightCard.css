@@ -1,0 +1,24 @@
+/* FlightCard.css */
+.flight-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    transition: transform 0.2s;
+  }
+  
+  .flight-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .flight-card h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .flight-card p {
+    margin: 4px 0;
+    font-size: 16px;
+  }
+  

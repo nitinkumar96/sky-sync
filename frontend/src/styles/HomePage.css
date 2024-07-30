@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  overflow: hidden; 
+}
+
+.background {
+  background-image: url('../assets/background22.png'); /* Adjust the path as necessary */
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: center;
+  position: relative;
+  animation: fadeIn 2s forwards;
+}
+
+.background.zoom {
+  animation: zoomIn 1.2s ease forwards; /* Add this line for the zoom-in animation */
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1); /* Adjust the scale value as needed */
+  }
+}
+
+.airplane-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+}
+
+.airplane {
+  width: 60%;
+  z-index: 2;
+  transform: translate(0, -30%) rotate(-10deg);
+  transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1); /* Updated cubic-bezier for faster acceleration */
+}
+
+.airplane.animate {
+  transform: translate(150%, -30%) rotate(-10deg); /* Move in the direction of rotation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.line1, .line3 {
+  color: white;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: "Archivo Black";
+  font-size: 5rem;
+  text-shadow: 1px 1px 3px #c6b6b6;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s forwards;
+}
+
+.line1 {
+  top: 12%;
+}
+
+.line3 {
+  top: 45%;
+  z-index: 2;
+}
+
+.input {
+  font-family: "Poppins";
+}
+
+.flight-status-form {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1s ease;
+  background: rgba(14, 10, 84, 0.415);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  width: 90%;
+  max-width: 900px;
+}
+
+
+@media (min-width: 600px) {
+  .flights-button {
+    display: block;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #28449c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+  }
+}

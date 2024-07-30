@@ -1,0 +1,26 @@
+.card-container {
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: top;
+  }
+  
+  .card-enter {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  
+  .card-enter-active {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  .card-exit {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  .card-exit-active {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  

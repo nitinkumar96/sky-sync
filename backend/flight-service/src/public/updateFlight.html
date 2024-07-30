@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Flight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Update Flight</h1>
+    <form id="updateFlightForm">
+        <label for="flightId">Flight ID</label>
+        <input type="number" id="flightId" name="flightId" required>
+
+        <label for="departureTime">Departure Time</label>
+        <input type="datetime-local" id="departureTime" name="departureTime">
+
+        <label for="arrivalTime">Arrival Time</label>
+        <input type="datetime-local" id="arrivalTime" name="arrivalTime">
+
+        <label for="gate">Gate</label>
+        <input type="text" id="gate" name="gate">
+
+        <label for="terminal">Terminal</label>
+        <input type="text" id="terminal" name="terminal">
+
+        <label for="status">Status</label>
+        <input type="text" id="status" name="status">
+
+        <button type="submit">Update Flight</button>
+    </form>
+    <script>
+        document.getElementById('updateFlightForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const flightId = document.getElementById('flightId').value;
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (value) data[key] = value;
+            });
+            try {
+                const response = await fetch(`http://localhost:3011/flights/${flightId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                if (response.ok) {
+                    alert('Flight updated successfully!');
+                } else {
+                    alert('Failed to update flight');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to update flight');
+            }
+        });
+    </script>
+</body>
+</html>

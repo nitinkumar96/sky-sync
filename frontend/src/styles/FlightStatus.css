@@ -1,0 +1,100 @@
+
+.status-background {
+    background-image: url('../assets/background22.png'); /* Adjust the path as necessary */
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    scale: 1.1;
+    overflow: scroll;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .status-page-form {
+    background: rgba(14, 10, 84, 0.415);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 120px;
+    padding: 5px;
+    width: 90%;
+    max-width: 900px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease; /* Smooth transition for opacity */
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.status-page-form.fade-in {
+    opacity: 1; /* Show the form when the fade-in class is applied */
+}
+
+  .flight-detail{
+    background: rgba(255, 255, 255, 0.415);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 120px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .booking{
+    background: rgba(227, 228, 233, 0.315);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 120px;
+    padding: 5px;
+    width: 30%;
+  }
+
+  .login{
+    background: rgba(227, 228, 233, 0.315);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+  }
+
+  .flights-container {
+    display: flex;               
+    flex-direction: column;     
+    align-items: center;         
+    justify-content: center;    
+    margin-top: 20px;      
+    width: 80%;               
+  }
+  
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(14, 10, 84, 0.415) inset !important; 
+    -webkit-text-fill-color: white;
+  }
+  
+  /* Styles for Firefox */
+  input:-moz-autofill {
+    background-color: rgba(14, 10, 84, 0.415) !important; 
+    color: white;
+  }
+  
+  input {
+    background-color: rgba(14, 10, 84, 0.415);
+    color: white; 
+  }
